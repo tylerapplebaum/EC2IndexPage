@@ -17,7 +17,7 @@ My process loosely followed [this AWS guide](https://docs.aws.amazon.com/sdk-for
 ### IAM
 After a successful Cognito identity pool creation, you should see 2 IAM roles, one with *auth* in the name, one with *unauth* in the name. Make sure you're working in the *unauth* role, otherwise you'll see a bunch of 400 requests.
 
-![IAM1](https://github.com/tylerapplebaum/EC2IndexPage/blob/master/docs/iam1.PNG "IAM1")
+![IAM1](https://github.com/tylerapplebaum/EC2IndexPage/blob/master/docs/iam1.png "IAM1")
 
 The IAM policy needed is very simplistic. We're only concerned with the GetItem call on **our specific DynamoDB table**. Replace region and account ID with your own in the policy below. Also, if you chose to name your DynamoDB table something other than InstanceTable, you'll need to change that in the IAM policy and the JavaScript in the index.html file.
 
