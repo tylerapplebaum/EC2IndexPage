@@ -19,7 +19,7 @@ After a successful Cognito identity pool creation, you should see 2 IAM roles, o
 
 ![IAM1](https://github.com/tylerapplebaum/EC2IndexPage/blob/master/docs/iam1.png "IAM1")
 
-The IAM policy needed is very simplistic. We're only concerned with the GetItem call on **our specific DynamoDB table**. Replace region and account ID with your own in the policy below. Also, if you chose to name your DynamoDB table something other than InstanceTable, you'll need to change that in the IAM policy and the JavaScript in the index.html file.
+The IAM policy needed (shown above as DDB-Anon-Policy) is very simplistic. We're only concerned with the GetItem call on **our specific DynamoDB table**. Replace region and account ID with your own in the policy below. Also, if you chose to name your DynamoDB table something other than InstanceTable, you'll need to change that in the IAM policy and the JavaScript in the index.html file.
 
 ```
 {
