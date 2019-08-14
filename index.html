@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang=en>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>AWS Test</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body {background-color: AliceBlue;}
+            h1 {font-size: 3vw; font-family: 'Open Sans', sans-serif;}
+            p {font-size: 1vw; font-family: 'Open Sans', sans-serif;}
+        </style>
+        <script src="https://sdk.amazonaws.com/js/aws-sdk-2.509.0.min.js"></script>
+    </head>
+    <body>
+        <script type="text/javascript">
+            <!-- https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/getting-started-browser.html -->
+            <!-- https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DynamoDB.html#getItem-property -->
+                // Initialize the Amazon Cognito credentials provider
+                AWS.config.region = 'us-west-2'; // Region
+                AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+                    IdentityPoolId: 'us-west-2:0ecd7e5d-ab2e-4ad6-abb2-0982ebafc7bf',
+                });
+                function GetEC2PublicIPv4() {
+                    var params = {
+                      Key: {
+                       "InstanceId": {
+                         S: "i-09c6e0d49feefd441"
+                        }
+                      }, 
+                      TableName: "InstanceTable"
+                    };
+                    var dynamodb = new AWS.DynamoDB();
+                    dynamodb.getItem(params, function(err, data) {
+                        if (err) {
+                            console.log(err, err.stack); // an error occurred
+                        }
+                        else { 
+                            console.log(data); // successful response
+                            var ipv4 = data.Item.IPv4Address.S;
+                            document.getElementById("EC2PublicIPv4").innerHTML = ipv4;
+                        }
+                    });
+                }
+                var EC2PublicIPv4 = new GetEC2PublicIPv4()
+            </script>
+        <h1>Hello from AWS!</h1>
+        <br />
+        <p>EC2 Instance IPv4 address: <span id="EC2PublicIPv4"></span></p>
+    </body>
+</html>
