@@ -89,7 +89,7 @@ When adding a new property to display, the following areas need to be modified:
 
 * 8/15/19: If I choose to clean up the DynamoDB table, I'll probably want an external Lambda function to do that. It could check for currently running instances and delete anything not matching a currently running instance ID.
 
-~~* 8/15/19: It would be nice to see some other info besides the IP address, like instance type, or something else from the metadata.~~
+* ~~8/15/19: It would be nice to see some other info besides the IP address, like instance type, or something else from the metadata.~~
 
   * 8/15/19: Added instance type, and documented what needs to be modified to add more properties in the future.
 
