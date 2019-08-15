@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Get Apache squared away
-sudo yum install httpd
+sudo yum -y install httpd
 usermod -a -G apache ec2-user
 sudo chown -R ec2-user:apache /var/www
 sudo systemctl restart httpd.service
