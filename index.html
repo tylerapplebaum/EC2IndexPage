@@ -41,7 +41,9 @@
                         else { 
                             console.log(data); // successful response
                             var ipv4 = data.Item.IPv4Address.S;
+                            var instancetype = data.Item.InstanceType.S;
                             document.getElementById("EC2PublicIPv4").innerHTML = ipv4;
+                            document.getElementById("EC2InstanceType").innerHTML = instancetype;
                         }
                     });
                 }
@@ -50,5 +52,6 @@
         <h1>Hello from AWS!</h1>
         <br />
         <p>EC2 Instance IPv4 address: <span id="EC2PublicIPv4"></span></p>
+        <p>EC2 Instance type: <span id="EC2InstanceType"</span></p>
     </body>
 </html>
