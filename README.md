@@ -60,6 +60,8 @@ If everything goes well, you should see this in the browser:
 
 ![Success](https://github.com/tylerapplebaum/EC2IndexPage/blob/master/docs/success.PNG "Success")
 
+Watch the requests roll in across your EC2 instances: `sudo tail -f /var/log/httpd/access_log`
+
 ## To-Do
 * ~~8/14/19: I haven't yet created a mechanism to automatically post the EC2 instance ID and IPv4 address to the Dynamo table. Maybe a simple AWS CLI function in the bootstrap script. For now, I've manually added them to test with.~~
 
