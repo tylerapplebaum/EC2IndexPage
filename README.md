@@ -1,5 +1,5 @@
 # EC2IndexPage
-A simple HTML/CSS/JS page that dynamically displays EC2 instance info
+A simple HTML/CSS/JS page that dynamically displays EC2 instance info. Example: http://awselb.linuxabuser.com/
 
 ## Requirements
 ### DynamoDB
