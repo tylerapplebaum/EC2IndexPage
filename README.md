@@ -63,11 +63,11 @@ If everything goes well, you should see this in the browser:
 ## To-Do
 * ~~8/14/19: I haven't yet created a mechanism to automatically post the EC2 instance ID and IPv4 address to the Dynamo table. Maybe a simple AWS CLI function in the bootstrap script. For now, I've manually added them to test with.~~
 
-..* 8/15/19: This has been resolved. AWS CLI invokes a DynamoDB PUT.
+  * 8/15/19: This has been resolved. AWS CLI invokes a DynamoDB PUT.
 
 * ~~8/14/19: The JavaScript needs to dynamically pull the parameter, likely from a local file containing the instance ID. That file can be created by the same future bootstrap script.~~
 
-..* 8/15/19: This is also resolved. The bootstrap.sh script "dynamically" generates the index.html page on boot, filling in the instance ID.
+  * 8/15/19: This is also resolved. The bootstrap.sh script "dynamically" generates the index.html page on boot, filling in the instance ID.
 
 * 8/15/19: If I choose to clean up the DynamoDB table, I'll probably want an external Lambda function to do that. It could check for currently running instances and delete anything not matching a currently running instance ID.
 
