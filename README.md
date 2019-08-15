@@ -4,6 +4,9 @@ A simple HTML/CSS/JS page that dynamically displays EC2 instance info.
 Example: http://awselb.linuxabuser.com/
 
 ## Requirements
+### EC2
+This entire example is based on the stock Amazon Linux 2 AMI (64-bit x86).
+
 ### DynamoDB
 This page calls a DynamoDB table called `InstanceTable`. It should be set up with 2 keys, like below.
 
@@ -76,3 +79,5 @@ Watch the requests roll in across your EC2 instances: `sudo tail -f /var/log/htt
 * 8/15/19: If I choose to clean up the DynamoDB table, I'll probably want an external Lambda function to do that. It could check for currently running instances and delete anything not matching a currently running instance ID.
 
 * 8/15/19: It would be nice to see some other info besides the IP address, like instance type, or something else from the metadata.
+
+* 8/15/19: Create CloudFormation template that includes an Auto Scaling Group and Launch Configuration. The CF template should also have an S3 bucket to pull in the modified httpd.conf file (includes X-Forwarded-For logging). The CF template can include **all** of the prerequisites above, like the DynamoDB table, Cognito config, and IAM roles.
