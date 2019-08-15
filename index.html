@@ -35,6 +35,8 @@
                     dynamodb.getItem(params, function(err, data) {
                         if (err) {
                             console.log(err, err.stack); // an error occurred
+                            var ipv4 = 'NotFound'
+                            document.getElementById("EC2PublicIPv4").innerHTML = ipv4;
                         }
                         else { 
                             console.log(data); // successful response
