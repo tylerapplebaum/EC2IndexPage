@@ -17,6 +17,9 @@ curl -O https://raw.githubusercontent.com/tylerapplebaum/EC2IndexPage/master/ite
 sed -i "s/i-xxxxxxxxxxxxxxxxx/$instance_id/g" item.json
 sed -i "s/x.x.x.x/$public_ipv4/g" item.json
 
+# PUT to DynamoDB - need to validate success (v2.0)
+aws dynamodb put-item --table-name InstanceTable --item file://item.json --region us-west-2
+
 # Do we need to save these to a file anymore? No longer using AJAX, so...
 sudo echo $publicipv4 > ~/publicipv4.txt
 sudo echo $instanceid > ~/instanceid.txt
