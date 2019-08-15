@@ -67,6 +67,17 @@ If everything goes well, you should see this in the browser:
 
 Watch the requests roll in across your EC2 instances: `sudo tail -f /var/log/httpd/access_log`
 
+## Notes
+When adding a new property to display, the following areas need to be modified:
+* index.html
+  * javascript variable
+  * getelementbyid
+  * HTML span
+* item.json
+* bootstrap.sh
+  * new BASH variable
+  * new `sed` entry for item.json
+
 ## To-Do
 * ~~8/14/19: I haven't yet created a mechanism to automatically post the EC2 instance ID and IPv4 address to the Dynamo table. Maybe a simple AWS CLI function in the bootstrap script. For now, I've manually added them to test with.~~
 
