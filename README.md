@@ -35,8 +35,29 @@ The IAM policy needed (shown above as DDB-Anon-Policy) is very simplistic. We're
 }
 ```
 
+In order to have the EC2 instance post its own info to the DynamoDB table, we'll need to create and attach an EC2 role. The IAM policy is as follows:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": "dynamodb:PutItem",
+            "Resource": "arn:aws:dynamodb:REGION:ACCOUNTID:table/InstanceTable"
+        }
+    ]
+}
+```
+
+The policy was attached to an IAM role for EC2, shown below.
+
+![EC2IAM](https://github.com/tylerapplebaum/EC2IndexPage/blob/master/docs/ec2role.png "EC2IAM")
+
 ## Operation
 If everything goes well, you should see this in the browser:
+
 ![Success](https://github.com/tylerapplebaum/EC2IndexPage/blob/master/docs/success.PNG "Success")
 
 ## To-Do
