@@ -16,6 +16,7 @@ instance_type=$(curl -s "http://169.254.169.254/latest/meta-data/instance-type")
 curl -O https://raw.githubusercontent.com/tylerapplebaum/EC2IndexPage/master/item.json
 sed -i "s/i-xxxxxxxxxxxxxxxxx/$instance_id/g" item.json
 sed -i "s/x.x.x.x/$public_ipv4/g" item.json
+sed -i "s/zzinstance/$instance_type/g" item.json
 
 # PUT to DynamoDB - need to validate success (v2.0)
 aws dynamodb put-item --table-name InstanceTable --item file://item.json --region us-west-2
