@@ -25,8 +25,9 @@ aws dynamodb put-item --table-name InstanceTable --item file://item.json --regio
 sudo echo $publicipv4 > ~/publicipv4.txt
 sudo echo $instanceid > ~/instanceid.txt
 
-# Prepare index.html
+# Prepare index.html and favicon
 cd /var/www/html
+curl -O https://s3-us-west-2.amazonaws.com/awselb.linuxabuser.com/favicon/favicon.ico
 curl -O https://raw.githubusercontent.com/tylerapplebaum/EC2IndexPage/master/index.html
 sed -i "s/i-xxxxxxxxxxxxxxxxx/$instance_id/g" index.html
 
