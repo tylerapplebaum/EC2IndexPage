@@ -1,7 +1,7 @@
 # EC2IndexPage
 A simple HTML/CSS/JS page that dynamically displays EC2 instance info. 
 
-Example: http://awselb.linuxabuser.com/
+Example: ~~http://awselb.linuxabuser.com/~~ no longer maintained, but the information below is still valid.
 
 ## Requirements
 ### EC2
