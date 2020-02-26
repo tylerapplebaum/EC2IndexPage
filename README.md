@@ -1,5 +1,5 @@
 # EC2IndexPage
-A simple HTML/CSS/JS page that dynamically displays EC2 instance info. This was an exercise to determine which exact EC2 instance served a webpage when behind an ALB.
+A simple HTML/CSS/JS page that dynamically displays EC2 instance info. This was a learning exercise with a goal of learning mutiple services, and using them to determine which exact EC2 instance served a webpage when behind an ALB.
 
 Example: ~~http://awselb.linuxabuser.com/~~ no longer maintained, but the information below is still valid.
 
