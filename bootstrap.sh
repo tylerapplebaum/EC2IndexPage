@@ -4,8 +4,12 @@
 sudo yum -y install httpd
 usermod -a -G apache ec2-user
 sudo chown -R ec2-user:apache /var/www
-sudo systemctl restart httpd.service
 sudo systemctl enable httpd.service
+
+# Pull in new httpd.conf
+curl -O https://github.com/tylerapplebaum/EC2IndexPage/blob/master/httpd.conf
+sudo mv /etc/httpd/conf/httpd.conf /etc/httpd/conf/httpd.conf.bak
+sudo cp httpd.conf /etc/httpd/conf/
 
 # Fetch data from metadata service
 public_ipv4=$(curl -s "http://169.254.169.254/latest/meta-data/public-ipv4")
@@ -30,9 +34,6 @@ cd /var/www/html
 curl -O https://s3-us-west-2.amazonaws.com/awselb.linuxabuser.com/favicon/favicon.ico
 curl -O https://raw.githubusercontent.com/tylerapplebaum/EC2IndexPage/master/index.html
 sed -i "s/i-xxxxxxxxxxxxxxxxx/$instance_id/g" index.html
-
-# Let's use our original variable instead
-# iid=$(cat instanceid.txt)
 
 # At this point, index.html is populated with this EC2 instance's ID
 # The instance ID will act as a primary key for reading from the DynamoDB instance
