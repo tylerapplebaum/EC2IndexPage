@@ -65,7 +65,7 @@ If everything goes well, you should see this in the browser:
 
 ![Success](https://github.com/tylerapplebaum/EC2IndexPage/blob/master/docs/success.PNG "Success")
 
-Watch the requests roll in across your EC2 instances: `sudo tail -f /var/log/httpd/access_log | grep -v HealthChecker`
+Watch the requests roll in across your EC2 instances: `sudo tail -f /etc/httpd/logs/access_log | grep -v HealthChecker`
 
 ## Notes
 When adding a new property to display, the following areas need to be modified:
