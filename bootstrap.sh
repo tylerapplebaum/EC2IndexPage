@@ -7,7 +7,7 @@ sudo chown -R ec2-user:apache /var/www
 sudo systemctl enable httpd.service
 
 # Pull in new httpd.conf
-curl -O https://github.com/tylerapplebaum/EC2IndexPage/blob/master/httpd.conf
+curl -O https://raw.githubusercontent.com/tylerapplebaum/EC2IndexPage/master/httpd.conf
 sudo mv /etc/httpd/conf/httpd.conf /etc/httpd/conf/httpd.conf.bak
 sudo cp httpd.conf /etc/httpd/conf/
 
